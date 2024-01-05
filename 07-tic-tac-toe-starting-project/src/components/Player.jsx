@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
 
-const Player = ({ name, symbol, isActive }) => {
+const Player = ({ name, symbol, isActive, onChangeName }) => {
   const [playerName, setPlayerName] = useState(name);
   const [isEditing, setIsEditing] = useState(false);
   const handleEditClick = () => {
     setIsEditing((editing) => !editing); //updating state based on old state
+    if (isEditing) {
+      onChangeName(symbol, playerName);
+    }
   };
   const handleNameChange = (event) => {
     setPlayerName(event.target.value);
@@ -23,9 +26,7 @@ const Player = ({ name, symbol, isActive }) => {
         )}
         {!isEditing && (
           <>
-            <span className="plaactivePlayerSymbol={activePlayer} yer-name">
-              {playerName}
-            </span>
+            <span className="player-name">{playerName}</span>
             <span className="player-symbol">{symbol}</span>
           </>
         )}
