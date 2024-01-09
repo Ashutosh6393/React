@@ -1,38 +1,60 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useReducer } from "react";
+
+const reducer = (state, action) => {
+  console.log(action, state);
+  switch (action.type) {
+    case "EDITING":
+      return { ...state, isEditing: !state.isEditing };
+    case "CHANGENAME":
+      return { ...state, playerName: action.newName};
+
+    default:
+      break;
+  }
+};
 
 const Player = ({ name, symbol, isActive, onChangeName }) => {
-  const [playerName, setPlayerName] = useState(name);
-  const [isEditing, setIsEditing] = useState(false);
+  
+  const initialState = {
+    playerName: name,
+    isEditing: false,
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   const handleEditClick = () => {
-    setIsEditing((editing) => !editing); //updating state based on old state
-    if (isEditing) {
-      onChangeName(symbol, playerName);
+    console.log(state.isEditing);
+    dispatch({ type: "EDITING" });
+    if (state.isEditing) {
+      onChangeName(symbol, state.playerName);
     }
   };
   const handleNameChange = (event) => {
-    setPlayerName(event.target.value);
+    dispatch({ type: "CHANGENAME", newName: event.target.value });
   };
   return (
     <li className={isActive ? "active" : undefined}>
       <span className="player">
-        {isEditing && (
+        {console.log(state, "hhh")}
+        {state.isEditing && (
           <input
             type="text"
-            defaultValue={playerName}
+            defaultValue={state.playerName}
             required
             onChange={handleNameChange}
           />
         )}
-        {!isEditing && (
+        {!state.isEditing && (
           <>
-            <span className="player-name">{playerName}</span>
+            <span className="player-name">{state.playerName}</span>
             <span className="player-symbol">{symbol}</span>
           </>
         )}
       </span>
-      {/* //This is called two way binding */}
-      <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
+      {/* //T`his is called two way binding */}
+      <button onClick={handleEditClick}>
+        {state.isEditing ? "Save" : "Edit"}
+      </button>
     </li>
   );
 };
