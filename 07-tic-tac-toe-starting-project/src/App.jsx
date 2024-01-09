@@ -11,18 +11,18 @@ const initialGameBoard = [
 ];
 
 function App() {
-  const [players, setPlayers] = useState({ X: "Player 1", O: "Player 2" });
+  const [players, setPlayers] = useState({X: "Player 1", O: "Player 2"})
   const [gameTurns, setGameTurns] = useState([]);
   const [activePlayer, setActivePlayer] = useState("X");
 
-  let gameBoard = [...initialGameBoard.map((array) => [...array])];
+  let gameBoard = [...initialGameBoard.map(array => [...array])];
   for (const turn of gameTurns) {
     const { square, player } = turn;
     const { row, col } = square;
 
     gameBoard[row][col] = player;
   }
-  let winner;
+  let winner; 
 
   for (const combination of WINNING_COMBINATIONS) {
     const firstSquareSymbol =
@@ -47,14 +47,15 @@ function App() {
     setGameTurns([]);
   };
 
-  const handlePlayerNameChange = (symbol, newName) => {
-    setPlayers((prevPlayers) => {
+
+  const handlePlayerNameChange = (symbol, newName)=>{
+    setPlayers(prevPlayers => {
       return {
         ...prevPlayers,
-        [symbol]: newName,
-      };
-    });
-  };
+        [symbol]: newName
+      }
+    })
+  }
 
   const handleSelectSquare = (rowIndex, colIndex) => {
     setActivePlayer((currentPlayer) => (currentPlayer === "X" ? "O" : "X"));
@@ -76,18 +77,8 @@ function App() {
     <main>
       <div id="game-container">
         <ol id="players">
-          <Player
-            name="Player 1"
-            symbol="X"
-            isActive={activePlayer === "X"}
-            onChangeName={handlePlayerNameChange}
-          />
-          <Player
-            name="Player 2"
-            symbol="O"
-            isActive={activePlayer === "O"}
-            onChangeName={handlePlayerNameChange}
-          />
+          <Player name="Player 1" symbol="X" isActive={activePlayer === "X"} onChangeName={handlePlayerNameChange} />
+          <Player name="Player 2" symbol="O" isActive={activePlayer === "O"} onChangeName={handlePlayerNameChange} />
         </ol>
         {(winner || hasDraw) && (
           <GameOver winner={winner} restart={handleRestart} />

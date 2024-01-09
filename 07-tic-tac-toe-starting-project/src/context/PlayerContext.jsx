@@ -1,11 +1,9 @@
-import { createContext } from "react";
+import {createContext} from 'react';
 
 const PlayerContext = createContext(null);
 
-export const CartProvider = (props) => {
-  const value = {
-    playerNames: ['player 1', 'player 2'];
-  };
+export const CartProvider = (props)=>{
+    return <PlayerContext.Provider>{props.children} </PlayerContext.Provider>
+}
 
-  return <PlayerContext.Provider>{props.children}</PlayerContext.Provider>;
-};
+
