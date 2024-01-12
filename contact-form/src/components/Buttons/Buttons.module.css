@@ -1,0 +1,23 @@
+.primary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 1rem;
+    padding-block: .8rem;
+    background-color: rgb(40, 40, 40);
+    width: 20rem;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: .4rem;
+    gap: .4rem;
+}
+
+.secondary{
+    margin-top: 1rem;
+    background-color: white;
+    color: black;
+    width: 100%;
+    border: 1px solid black;
+
+}
