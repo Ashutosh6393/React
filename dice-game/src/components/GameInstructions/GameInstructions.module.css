@@ -1,0 +1,16 @@
+.gameInstructions{
+    background-color: rgb(253, 233, 230);
+    padding: 2rem;
+    border-radius: 2rem;
+
+    & h1{
+        font-weight: 600;
+        padding-bottom: 1rem;
+    }
+
+    & p{
+        font-size: 1rem;
+    }
+
+}
+

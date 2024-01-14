@@ -1,0 +1,75 @@
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & h1{
+        font-size: 6rem;
+        font-weight: 700;
+        line-height: 100%;
+
+    }
+
+    & p{
+        font-size: 1rem;
+        
+    }
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: .3rem;
+
+    & p{
+        font-size: 1.3rem;
+    }
+
+    & ul{
+        list-style-type: none;
+        display: flex;
+        gap: 2rem;
+
+        & li{
+            width: 6rem;
+            aspect-ratio:  1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 600;
+            border: 1px solid black;
+            &:active:not(.selected){
+                background-color: rgb(242, 242, 242);
+            }
+        }
+    }
+
+}
+
+.errorText{
+    color: firebrick;
+}
+
+.selected{
+    color: white;
+    background-color: black;
+    &:active{
+        background-color: black;
+    }
+}
+
+
+
+

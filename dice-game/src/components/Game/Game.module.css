@@ -1,0 +1,44 @@
+.game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    & h3{
+        font-size: 1.3rem;
+        font-weight: 400;
+
+    }
+
+
+}
+.firstButton , .secondButton{
+    width: 14rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: .8rem;
+    border-radius: .4rem;
+}
+
+
+.firstButton{
+    border: none;
+    color: white;
+    background-color: black;
+    &:active{
+        background-color: rgb(41, 41, 41);
+    }
+    
+}
+
+.secondButton{
+    border: 1px solid black;
+    background-color: white;
+    &:active{
+        background-color: rgb(238, 238, 238);
+    }
+    
+
+}
+
