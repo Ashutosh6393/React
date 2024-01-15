@@ -1,75 +1,86 @@
-header{
-    width: 100%;
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  & p {
+    font-size: 1rem;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 0.3rem;
+
+  & p {
+    font-size: 1.3rem;
+  }
+
+  & ul {
+    list-style-type: none;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 2rem;
 
+    & li {
+      width: 6rem;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 600;
+      border: 1px solid black;
+      &:active:not(.selected) {
+        background-color: rgb(242, 242, 242);
+      }
+    }
+  }
 }
 
-.left{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    & h1{
-        font-size: 6rem;
-        font-weight: 700;
-        line-height: 100%;
-
-    }
-
-    & p{
-        font-size: 1rem;
-        
-    }
+.errorText {
+  color: firebrick;
+  animation: horizontal-shaking 0.2s linear;
 }
 
-.right{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: end;
-    gap: .3rem;
-
-    & p{
-        font-size: 1.3rem;
-    }
-
-    & ul{
-        list-style-type: none;
-        display: flex;
-        gap: 2rem;
-
-        & li{
-            width: 6rem;
-            aspect-ratio:  1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 600;
-            border: 1px solid black;
-            &:active:not(.selected){
-                background-color: rgb(242, 242, 242);
-            }
-        }
-    }
-
-}
-
-.errorText{
-    color: firebrick;
-}
-
-.selected{
-    color: white;
+.selected {
+  color: white;
+  background-color: black;
+  &:active {
     background-color: black;
-    &:active{
-        background-color: black;
-    }
+  }
 }
 
-
-
-
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

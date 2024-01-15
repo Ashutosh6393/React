@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EntryPage from "./pages/EntryPage";
 import GamePage from "./pages/GamePage";
+import { GameProvider } from "./store/GameContext";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -14,7 +15,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <GameProvider>
+        <RouterProvider router={router} />
+      </GameProvider>
     </>
   );
 }
