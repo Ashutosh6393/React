@@ -37,7 +37,7 @@ I created these mini react projects while I was learning core and advance react 
 
 ## 03-Tic tac toe game
 
-![Tic tac toe game Screenshot](0Screenshots/03.png)
+![Tic tac toe game Screenshot](Screenshots/03.png)
 
 
 ### Concepts Used
