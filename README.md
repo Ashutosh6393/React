@@ -23,7 +23,7 @@ I created these mini react projects while I was learning core and advance react 
 
 ## 02-Stop the timer game
 
-![Stop the timer game Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Stop the timer game Screenshot](Screenshots/02.png)
 
 
 ### Concepts Learned
@@ -37,7 +37,7 @@ I created these mini react projects while I was learning core and advance react 
 
 ## 03-Tic tac toe game
 
-![Tic tac toe game Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Tic tac toe game Screenshot](0Screenshots/03.png)
 
 
 ### Concepts Used
@@ -50,7 +50,7 @@ I created these mini react projects while I was learning core and advance react 
 
 ## 04- Investment Calculator
 
-![Investment calculator app Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Investment calculator app Screenshot](Screenshots/04.png)
 
 
 ### Concepts Used
@@ -61,7 +61,8 @@ I created these mini react projects while I was learning core and advance react 
 
 ## 04- Dice game
 
-![Dice game Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Dice game Screenshot](Screenshots/05-1.png)
+![Dice game Screenshot](Screenshots/05-2.png)
 
 
 ### Concepts Used
@@ -72,7 +73,7 @@ I created these mini react projects while I was learning core and advance react 
 
 ## 04- Contact Form
 
-![Contact Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Contact Screenshot](Screenshots/06.png)
 
 
 ### Concepts Used
@@ -83,7 +84,7 @@ I created these mini react projects while I was learning core and advance react 
 
 ## 04- Forms
 
-![Forms Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Forms Screenshot](Screenshots/Forms.png)
 
 
 ### Concepts Used
