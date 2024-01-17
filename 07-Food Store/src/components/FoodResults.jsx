@@ -19,7 +19,7 @@ export default FoodResults;
 
 const MainContainer = styled("div")`
   width: 100%;
-  min-height: 75vh;
+  min-height: calc(100vh - 15rem);
   max-height: auto;
   background-image: linear-gradient(
       0deg,
@@ -28,7 +28,6 @@ const MainContainer = styled("div")`
     ),
     url("/images/bg.png");
   background-size: cover;
-  background-repeat: repeat-y;
 `;
 
 const ItemsContainer = styled("div")`
@@ -38,5 +37,6 @@ const ItemsContainer = styled("div")`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  column-gap: 2rem;
+  row-gap: clamp(1rem, 2vh + .3rem, 4rem);
 `;
