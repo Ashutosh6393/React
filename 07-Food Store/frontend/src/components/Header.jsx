@@ -1,18 +1,55 @@
-import React from "react";
+import React, { useRef, useState, useContext } from "react";
 import { styled } from "styled-components";
-
+import { FoodContext } from "../context/AppContext";
 const Header = () => {
+  const searchFood = useRef();
+  const { selectedCategory, setSelectedCategory, setSearchedFood } =
+    useContext(FoodContext);
+
+  const handleSearchFood = () => {
+    setSearchedFood(searchFood.current.value);
+  };
+
+  const handleSelectCategory = (event) => {
+    setSelectedCategory(event.target.textContent);
+  };
+
   return (
     <MainContainer>
       <HeaderContainer>
         <h1>FOODY ZONE</h1>
-        <input type="text" placeholder="Search Food" />
+        <input
+          ref={searchFood}
+          type="text"
+          placeholder="Search Food"
+          onChange={handleSearchFood}
+        />
       </HeaderContainer>
       <NavContainer>
-        <Button>All</Button>
-        <Button>Breakfast</Button>
-        <Button>Lunch</Button>
-        <Button>Dinner</Button>
+        <Button
+          onClick={handleSelectCategory}
+          className={selectedCategory === "All" ? "active" : undefined}
+        >
+          All
+        </Button>
+        <Button
+          onClick={handleSelectCategory}
+          className={selectedCategory === "Breakfast" ? "active" : undefined}
+        >
+          Breakfast
+        </Button>
+        <Button
+          onClick={handleSelectCategory}
+          className={selectedCategory === "Lunch" ? "active" : undefined}
+        >
+          Lunch
+        </Button>
+        <Button
+          onClick={handleSelectCategory}
+          className={selectedCategory === "Dinner" ? "active" : undefined}
+        >
+          Dinner
+        </Button>
       </NavContainer>
     </MainContainer>
   );
@@ -44,6 +81,9 @@ const MainContainer = styled("div")`
 
   h1 {
     font-size: clamp(2rem, 2.5vw + 0.6rem, 6rem);
+  }
+  .active {
+    background-color: #c93434;
   }
 `;
 

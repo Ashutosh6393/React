@@ -1,20 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const FoodItem = () => {
+const FoodItem = ({ data }) => {
   return (
     <MainContainer>
       <div className="image">
-        <img src="" alt="" />
+        <img src={`http://localhost:9000${data.image}`} alt="" />
       </div>
       <div className="right">
-        <h2>Samosa Chutnney</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia
-          perspiciatis nisi{" "}
-        </p>
+        <h2>{data.name}</h2>
+        <p>{data.text}</p>
         <div className="bottom">
-          <p>$100</p>
+          <p>${data.price}</p>
           <button>Add+</button>
         </div>
       </div>
@@ -44,7 +41,6 @@ const MainContainer = styled("div")`
     padding: 1rem;
 
     img {
-      border: 1px solid black;
       border-radius: 100%;
       width: 100%;
       aspect-ratio: 1;
@@ -91,12 +87,12 @@ const MainContainer = styled("div")`
 
     .image {
       width: 100%;
-      img{
-        width: clamp(10rem, 50vw + .5rem, 60%);
+      img {
+        width: clamp(10rem, 50vw + 0.5rem, 60%);
       }
     }
     .right {
-        text-align: center;
+      text-align: center;
       width: 100%;
     }
   }
