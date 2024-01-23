@@ -4,7 +4,7 @@ import Contacts from "./components/Contacts";
 
 function App() {
   return (
-    <div className="max-w-[370px] m-auto pt-2 h-[100vh]">
+    <div className="max-w-[400px] m-auto h-[100vh] border p-4 border-gray-700">
       <Header />
       <Search />
       <Contacts />

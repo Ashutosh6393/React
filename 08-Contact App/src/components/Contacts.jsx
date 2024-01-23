@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState , useRef} from "react";
 import { MdPersonAdd } from "react-icons/md";
 import ContactCard from "./ContactCard";
 import { collection, getDoc, doc, setDoc, getDocs } from "firebase/firestore";
@@ -7,43 +7,62 @@ import { context } from "../context/AppContext";
 import Modal from "./Modal";
 
 const Contacts = () => {
-  const { userContacts, setUserContacts, openModal } = useContext(context);
+  const dialog = useRef();
+  const [noContacts, setNoContacts] = useState(true);
+  const { userContacts, setUserContacts, openModal, setOpenModal, inputValue } =
+    useContext(context);
 
-  let contactLists;
+  const handleAddContact = () => {
+    // setOpenModal(true);
+    dialog.current.showModal();
+  };
+
   useEffect(() => {
     const getContacts = async () => {
       try {
         const getDocRef = collection(db, "contacts");
         const contactSnap = await getDocs(getDocRef);
-        contactLists = contactSnap.docs.map((doc) => {
+        const contactLists = contactSnap.docs.map((doc) => {
           return {
             id: doc.id,
             ...doc.data(),
           };
         });
         setUserContacts(contactLists);
+        setNoContacts(false);
       } catch (error) {}
     };
     getContacts();
   }, []);
 
+
+
+  useEffect(()=>{},[userContacts])
+  let filteredData;
+  if (userContacts && inputValue) {
+    filteredData = (userContacts.filter(item=> item.name.toLowerCase().startsWith(inputValue.toLowerCase())))
+  }
+
+
   return (
     <div className="relative">
-      {openModal && <Modal />}
+      {<Modal ref={dialog} />}
 
       <section className="w-full flex flex-col h-full pt-6 pb-6 gap-2">
-        {userContacts.map((data) => (
-          <ContactCard key={data.id} data={data} />
-        ))}
+        {inputValue && filteredData.map(item=> <ContactCard key={item.id} data={item}/>)}
+        {!inputValue && userContacts.map(item=> <ContactCard key={item.id} data={item}/>)}
 
-        {/* {
-          <section className="w-full h-full flex gap-3 justify-center items-center">
-            <button className="border-2 p-3 rounded-full text-lg text-white hover:bg-[#4f4f4f]">
+        {noContacts && (
+          <section className="pt-10 w-full h-full flex gap-3 justify-center items-center">
+            <button
+              onClick={handleAddContact}
+              className="border-2 p-3 rounded-full text-lg text-white hover:bg-[#4f4f4f]"
+            >
               <MdPersonAdd />
             </button>
             <h2 className="text-white text-xl font-bold">No Contacts Found</h2>
           </section>
-        } */}
+        )}
       </section>
     </div>
   );

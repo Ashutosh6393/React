@@ -4,7 +4,7 @@ import { IoMdAdd } from "react-icons/io";
 import { context } from "../context/AppContext";
 
 const Search = () => {
-  const { setInputValue, } = useContext(context);
+  const { setInputValue, setOpenModal } = useContext(context);
   const getInputValue = useRef();
 
   const handleInput = () => {
@@ -12,7 +12,7 @@ const Search = () => {
   };
 
   const handleCreateNewContact = ()=>{
-    console.log('creating new contact');
+    setOpenModal(true);
   }
 
   return (
@@ -24,7 +24,7 @@ const Search = () => {
           ref={getInputValue}
           type="text"
           className="focus:outline-none bg-inherit text-lg text-white placeholder:text-white "
-          placeholder="Search Contact"
+          placeholder="Search by name ..."
           onChange={handleInput}
         />
       </div>
