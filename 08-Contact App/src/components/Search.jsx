@@ -3,17 +3,14 @@ import { IoSearchOutline } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
 import { context } from "../context/AppContext";
 
-const Search = () => {
-  const { setInputValue, setOpenModal } = useContext(context);
+const Search = ({onOpen}) => {
+  const { setInputValue } = useContext(context);
   const getInputValue = useRef();
 
   const handleInput = () => {
     setInputValue(getInputValue.current.value);
   };
 
-  const handleCreateNewContact = ()=>{
-    setOpenModal(true);
-  }
 
   return (
     <div className=" w-full mt-[20px] flex justify-between ">
@@ -29,7 +26,10 @@ const Search = () => {
         />
       </div>
 
-      <button onClick={handleCreateNewContact} className="bg-white rounded-full p-2 ">
+      <button
+        onClick={()=>onOpen(null)}
+        className="bg-white rounded-full p-2 "
+      >
         <IoMdAdd className="text-black text-2xl" />
       </button>
     </div>

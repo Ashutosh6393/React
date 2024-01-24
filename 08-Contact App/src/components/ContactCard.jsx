@@ -3,8 +3,11 @@ import { IoIosContact } from "react-icons/io";
 import { MdOutlineEdit, MdDelete } from "react-icons/md";
 import { context } from "../context/AppContext";
 
-const ContactCard = ({ data }) => {
-  const {handleEdit } = useContext(context);
+const ContactCard = ({ data, onOpen }) => {
+
+  const handleEdit= ()=>{
+    onOpen(data)
+  }
 
   return (
     <>
