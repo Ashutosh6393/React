@@ -1,14 +1,29 @@
-import React, { useRef, useContext, forwardRef } from "react";
+import React, { useRef, useContext, forwardRef, useState } from "react";
 import { context } from "../context/AppContext";
+import {collection} from "firebase/firestore"
+import {db} from '../config/firebase'
 const Modal = ({ onClose, data }) => {
+  const [newFormData, setNewFormData] = useState({})
+  const addContact = async (contact)=>{
+    try{
+      const contactRef = collection(db, "contats");
+      await addDoc(contactRef, contact);
+    } catch (error){
+      console.log(error);
+    }
+  }
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (data.id) {
       const fd = new FormData(event.target);
       const formdata = Object.fromEntries(fd.entries());
+      setNewFormData(formdata)
       console.log(formdata);
       console.log("we will modify Data here");
+      addContact(newFormData)
     } else {
+
       console.log("we will save new data here");
     }
     console.log("saved");
