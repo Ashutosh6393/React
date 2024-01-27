@@ -59,7 +59,7 @@ I created these mini react projects while I was learning core and advance react 
 - Input handling
 
 
-## 04- Dice game
+## 05- Dice game
 
 ![Dice game Screenshot](Screenshots/05-1.png)
 ![Dice game Screenshot](Screenshots/05-2.png)
@@ -71,7 +71,7 @@ I created these mini react projects while I was learning core and advance react 
 - context api
 - useContext, createContext
 
-## 04- Contact Form
+## 06- Contact Form
 
 ![Contact Screenshot](Screenshots/06.png)
 
@@ -82,7 +82,7 @@ I created these mini react projects while I was learning core and advance react 
 - validating form data
 - useRefs
 
-## 04- Forms
+## 07- Forms
 
 ![Forms Screenshot](Screenshots/Forms.png)
 
